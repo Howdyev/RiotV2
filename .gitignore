@@ -1,0 +1,4 @@
+# ignore all directories
+.cache/
+node_modules/
+public/

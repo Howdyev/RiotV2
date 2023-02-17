@@ -3,11 +3,13 @@
     "target": "es5",
     "jsx": "preserve",
     "module": "commonjs",
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "components/*": ["./components/*"],
-      "utils/*": ["./utils/*"],
-      "hooks/*": ["./hooks/*"]
+      "components/*": ["./src/components/*"],
+      "pages/*": ["src/pages/*"],
+      "utils/*": ["src/utils/*"],
+      "hooks/*": ["src/hooks/*"],
+      "images/*": ["./src/images/*"]
     },
     "resolveJsonModule": true,
     "allowJs": true,
@@ -19,6 +21,6 @@
     "noImplicitReturns": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*.tsx"],
+  "include": ["./src/**/*", "./src/**/*.tsx", "src/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -4,7 +4,7 @@ import React, { createContext } from "react"
 // in our reducer
 
 const initialState = {
-    openMenu: false,
+    openMenu: 0,
     // onPageTransition: false,
 }
 

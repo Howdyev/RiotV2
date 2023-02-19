@@ -20,59 +20,85 @@ const Layout = ({children}) => {
     const inServiceRef = useRef()
     const inAboutusRef = useRef()
     const bgInnerList = [inBannerRef, inServiceRef, inAboutusRef]
+    const frontRef = useRef()
+    var curPageNo = 0;
+    const urls = ["/", "/service", "/about-us"];
+    const _timeToLoadPage = () => {
+        console.log("hoiasjdofjaosfijaosfjdoij")
+    }
     const _onWheel = (e) => {
         if(transitioning) return;
+        console.log(bannerRef.current)
         transitioning = true;
-
-        // setOpenMenu(!openMenu)
-        // console.log(openMenu)
-
-        // gsap.timeline()
-        //     .set(bannerRef.current, {rotation: 0})
-        //     .to(bannerRef.current, {rotation: 360});
-        if(bannerRef.current) {
-            gsapWithCss.timeline()
-            .set(bannerRef.current, {
-                transform: "translate3d(0, 0, 0)"})
-            .to(bannerRef.current, {
-                transform: "translate3d(-20%, -100%, 0)",
-                duration: ANIEFFECT.max_page_speed,
-                delay: 0.1,
-            });
-        }
-        if(inBannerRef.current) {
-            gsapWithCss.timeline()
-                .set(inBannerRef.current, {transform: "scale(1, 1)"})
-                .to(inBannerRef.current, {
-                    transform: "scale(" + ANIEFFECT.max_inner_scale + "," + ANIEFFECT.max_inner_scale + ")",
+        curPageNo = openMenu;
+        console.log("called?")
+        if(curPageNo < bgList.length-1) {
+            if(bgList[curPageNo].current) {
+                gsapWithCss.timeline()
+                .set(bgList[curPageNo].current, {
+                    transform: "translate3d(0, 0, 0)"})
+                .to(bgList[curPageNo].current, {
+                    transform: "translate3d(-20%, -100%, 0)",
                     duration: ANIEFFECT.max_page_speed,
-                    delay: 0,
+                    delay: 0.1,
                 });
-        }
+            }
+            if(bgInnerList[curPageNo].current) {
+                gsapWithCss.timeline()
+                    .set(bgInnerList[curPageNo].current, {transform: "scale(1, 1)"})
+                    .to(bgInnerList[curPageNo].current, {
+                        transform: "scale(" + ANIEFFECT.max_inner_scale + "," + ANIEFFECT.max_inner_scale + ")",
+                        duration: ANIEFFECT.max_page_speed,
+                        delay: 0,
+                    });
+            }
 
-        if(serviceRef.current){
-            gsapWithCss.timeline()
-                .set(serviceRef.current, {transform: "translate3d(20%, 100%, 0)"})
-                .to(serviceRef.current, {
-                    transform: "translate3d(0, 0, 0)",
-                    duration: ANIEFFECT.max_page_speed*0.8,
-                    delay: 0.3,
-                });
-        }
-        if(inServiceRef.current) {
-            gsapWithCss.timeline()
-                .set(inServiceRef.current, {transform: "scale("+ANIEFFECT.max_inner_scale+", "+ANIEFFECT.max_inner_scale+")"})
-                .to(inServiceRef.current, {
-                    transform: "scale(1,1)",
-                    duration: ANIEFFECT.max_page_speed*0.8,
-                    delay: 0.5,
-                });
+            if(bgList[curPageNo+1].current){
+                gsapWithCss.timeline()
+                    .set(bgList[curPageNo+1].current, {transform: "translate3d(20%, 100%, 0)"})
+                    .to(bgList[curPageNo+1].current, {
+                        transform: "translate3d(0, 0, 0)",
+                        duration: ANIEFFECT.max_page_speed*0.8,
+                        delay: 0.3,
+                    });
+            }
+            if(bgInnerList[curPageNo+1].current) {
+                gsapWithCss.timeline()
+                    .set(bgInnerList[curPageNo+1].current, {transform: "scale("+ANIEFFECT.max_inner_scale+", "+ANIEFFECT.max_inner_scale+")"})
+                    .to(bgInnerList[curPageNo+1].current, {
+                        transform: "scale(1,1)",
+                        duration: ANIEFFECT.max_page_speed*0.8,
+                        delay: 0.5,
+                        onComplete: _timeToLoadPage
+                    });
+            }
+            if(frontRef.current) {
+                gsapWithCss.timeline()
+                    .set(frontRef.current, {opacity: 1})
+                    .to(frontRef.current, {
+                        opacity: 0,
+                        duration: 0.5,
+                        delay: 0,
+                    });
+            }
         }
         setTimeout(() => {
+            navigate(navigate(urls[curPageNo+1]))
+            if(frontRef.current) {
+                gsapWithCss.timeline()
+                    .set(frontRef.current, {opacity: 0})
+                    .to(frontRef.current, {
+                        opacity: 1,
+                        duration: 2,
+                        delay: 0,
+                    });
+            }
+        }, 1000);
+        setTimeout(() => {
             transitioning = false;
-            setOpenMenu(!openMenu)
-            // navigate("/service/")
-        }, 3000);
+            setOpenMenu(openMenu+1)
+        }, 2000);
+        
     }
     useEffect(() => {
         console.log("rest layout");
@@ -114,7 +140,9 @@ const Layout = ({children}) => {
                 </CommonStyles.PageBack>
             </CommonStyles.BackgroundSet>
             
-            { children }
+            <CommonStyles.FrontWrap ref={frontRef}>
+                { children }
+            </CommonStyles.FrontWrap>
         </div>
     )
 };

@@ -153,3 +153,7 @@ export const FrontContainer = styled.div`
   padding-top: 60px;
   padding-bottom: 20px;
 `
+
+export const FrontWrap = styled.div`
+  
+`

@@ -1,4 +1,4 @@
-import { FunctionComponent, useContext, useRef } from "react";
+import { FunctionComponent, useEffect, useContext, useRef } from "react";
 import * as Styles from "./styles";
 import * as CommonStyles from "components/common-styles";
 import { GlobalContext } from "components/context/GlobalContext"
@@ -6,11 +6,14 @@ import gsapWithCss from 'gsap'
 
 const Top: FunctionComponent = function () {
   const { openMenu, setOpenMenu } = useContext(GlobalContext);
-  const frontEl1 = useRef()  
+  const pageRef = useRef()
+  useEffect(() => {
+  }, [])
+
   return (
-    <CommonStyles.FrontPage>
+    <CommonStyles.FrontPage ref={pageRef}>
         <Styles.BannerFrontContainer>
-            <Styles.BannerTitle ref={frontEl1}>挑戦し続ける会社に</Styles.BannerTitle>
+            <Styles.BannerTitle >挑戦し続ける会社に</Styles.BannerTitle>
         </Styles.BannerFrontContainer>
     </CommonStyles.FrontPage>
   )

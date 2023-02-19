@@ -7,9 +7,7 @@ const ServicePage: FunctionComponent = function () {
   
   return (
     <>
-      <Layout video={2}>
-        <Service />
-      </Layout>
+      <Service />
     </>
   );
 };

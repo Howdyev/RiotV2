@@ -1,16 +1,11 @@
-import React, { FunctionComponent } from "react";
-import Layout from "components/Layout";
+import React, { FunctionComponent, useEffect } from "react";
 import Top from "components/Top";
-
 const IndexPage: FunctionComponent = function () {
 
-  return (
-    <>
-      <Layout>
-        <Top />
-      </Layout>
-    </>
-  );
+  useEffect(() => {
+    console.log("Index useEffect");
+  });
+  return <Top />
 };
 
 export default IndexPage;

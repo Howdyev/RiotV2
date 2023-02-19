@@ -16,6 +16,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`${__dirname}/src/components/layout/index.tsx`),
+      },
+    },
+    {
       resolve: "gatsby-plugin-typescript",
       options: {
         isTSX: true,

@@ -5649,6 +5649,13 @@ gatsby-plugin-image@^3.6.0:
     objectFitPolyfill "^2.3.5"
     prop-types "^15.8.1"
 
+gatsby-plugin-layout@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-4.6.0.tgz#62cf9c3cd86b4b42a0f896980f99be752d94c37d"
+  integrity sha512-JxgVIVymzGQ+ZeLkWVdw0omNPN7+GxfgDxTnNWMoTn34ABcAgSbN1V9I3dJ8T1epCNr/zyrU7DjkzUbEfy4NOQ==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+
 gatsby-plugin-manifest@^5.6.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-5.6.0.tgz#31240f25b0f8cac70cdb8debddf1b2aa6c240212"
@@ -6358,6 +6365,11 @@ gray-matter@^4.0.3:
     kind-of "^6.0.2"
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
+
+gsap@^3.11.4:
+  version "3.11.4"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.11.4.tgz#e6d972d3509a7431b86d81d6fc3bbeb6862e5ff1"
+  integrity sha512-McHhEguHyExMMnjqKA8G+7TvxmlKQGMbjgwAilnFe1e4id7V/tFveRQ2YMZhTYu0oxHGWvbPltdVYQOu3z1SCA==
 
 gzip-size@^6.0.0:
   version "6.0.0"

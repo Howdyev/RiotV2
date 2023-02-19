@@ -22,6 +22,19 @@ export const COLOR = {
   text: "#202020",
 };
 
+export const ANIEFFECT = {
+  max_page_speed: 1,
+  max_scale_speed: 0.2,
+  max_inner_scale: 0.8,
+  ease_func: "cubic-bezier(.7,0,.3,1)",
+  out_ease_func: "cubic-bezier(.7,0,.3,1)",
+  in_ease_func: "cubic-bezier(0,0,0.5,1)",
+  front_ease: "cubic-bezier(.52,.08,.18,1)",
+  front_anitime: 700,
+  absH: 100,
+  show_order: 0,
+};
+
 export const screenInfoList = [
   {
     order: 1,
@@ -105,29 +118,35 @@ export const SERVICE = [
   },
 ];
 
-export const ABOUT = [
-  {
-    dt: "商号",
-    dd: "株式会社ライオット（株式会社RIOT）",
-  },
-  {
-    dt: "事業内容",
-    dd: "システム開発　SES",
-  },
-  {
-    dt: "代表取締役",
-    dd: "下野　隼",
-  },
-  {
-    dt: "設立",
-    dd: "2019年1月",
-  },
-  {
-    dt: "所在地",
-    dd: "東京都渋谷区広尾2丁目13番6号",
-  },
-  {
-    dt: "資本金",
-    dd: "1,000万円",
-  },
-];
+export const ABOUT = {
+  companyInfo: [
+    {
+      dt: "商号",
+      dd: "株式会社ライオット（株式会社RIOT）",
+    },
+    {
+      dt: "事業内容",
+      dd: "システム開発　SES",
+    },
+    {
+      dt: "代表取締役",
+      dd: "下野　隼",
+    },
+    {
+      dt: "設立",
+      dd: "2019年1月",
+    },
+    {
+      dt: "所在地",
+      dd: "東京都渋谷区広尾2丁目13番6号",
+    },
+    {
+      dt: "資本金",
+      dd: "1,000万円",
+    },
+  ],
+  officeImage: {
+    imageAlt: "オフィス画像",
+    imageFileName: "riot-company",
+  }
+}

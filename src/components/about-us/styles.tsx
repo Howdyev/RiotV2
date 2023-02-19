@@ -155,14 +155,13 @@ export const ImageWrapper = styled.div`
   }
 `;
 
-export const Div = styled.div`
+export const DivH20 = styled.div`
   height: 20px;
 `;
 
 export const AboutMap = styled.div`
   width: 1200px;
-  height: 300px;
-  flex: unset;
+  flex: 1;
   @media (max-width: 1399px) {
     width: 1000px;
   }

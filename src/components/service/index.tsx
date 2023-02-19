@@ -36,7 +36,6 @@ export const Service = () => {
       }
     `
   );
-
   const getImageNode = (fileName: string) => {
     const filteredNodes = imagesData.allFile.edges.filter((value: any) => value.node.name == fileName);
     return filteredNodes[0].node

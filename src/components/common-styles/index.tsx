@@ -12,6 +12,15 @@ export const BgBlur = styled.div`
     pointer-events: none;
     background-color: rgba(0,0,0,0.6);
 `;
+export const BgWhite = styled.div`
+    background-color: #fff;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+`;
 
 export const BackgroundLine = styled.div`
   transform: rotate(-15deg);
@@ -51,8 +60,15 @@ export const SubPageScrollbar = styled.div`
 export const PageScrollbar = styled.div`
   width: 100%;
   height: 100vh;
-  overflow-y: scroll;
+  overflow: hidden;
   scroll-behavior: smooth;
+`;
+
+export const BackgroundSet = styled.div`
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 `;
 
 export const PageBack = styled.div`
@@ -64,8 +80,6 @@ export const PageBack = styled.div`
 `;
 
 export const PageInner = styled.div`
-  width: 100%;
-  height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -87,18 +101,6 @@ export const SubPage = styled.div`
   ${MEDIA.sp} {
     background-color: #fff;
   }
-`;
-
-export const SubPageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100%;
-  padding-top: 90px;
-  padding-bottom: 60px;
-  position: relative;
 `;
 
 export const PageContainer = styled.div`

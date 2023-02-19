@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nanum Myeongjo", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -font-smoothing: antialiased;
+  font-family: 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo,
+    "MS Pゴシック", "MS PGothic", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+html,
+body,
+#___gatsby {
+  height: 100%;
+  min-height: 100%;
+  background-color: #f2f8f7;
+  position: relative;
+  color: #232323;
+  overflow: hidden;
+}
+
+body.no_scroll {
+  overflow: hidden;
+}
+a,
+button,
+input[type="submit"],
+select {
+  cursor: pointer;
+}
+a,
+a:hover,
+a:focus,
+button,
+button:hover,
+button:focus,
+input,
+input:hover,
+input:focus,
+textarea,
+textarea:hover,
+textarea:focus,
+select,
+select:hover,
+select:focus {
+  outline: 0;
+  box-shadow: none;
+  text-decoration: none;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}

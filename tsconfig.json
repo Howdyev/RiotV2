@@ -6,10 +6,9 @@
     "baseUrl": ".",
     "paths": {
       "components/*": ["./src/components/*"],
-      "pages/*": ["src/pages/*"],
-      "utils/*": ["src/utils/*"],
-      "hooks/*": ["src/hooks/*"],
-      "images/*": ["./src/images/*"]
+      "utils/*": ["./src/utils/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "constants/*": ["./src/constants/*"]
     },
     "resolveJsonModule": true,
     "allowJs": true,
@@ -21,6 +20,6 @@
     "noImplicitReturns": true,
     "skipLibCheck": true
   },
-  "include": ["./src/**/*", "./src/**/*.tsx", "src/**/*.ts"],
+  "include": ["src/**/*.tsx", "src/**/*.ts"],
   "exclude": ["node_modules"]
 }

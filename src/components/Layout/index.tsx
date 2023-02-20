@@ -23,80 +23,99 @@ const Layout = ({children}) => {
     const frontRef = useRef()
     var curPageNo = 0;
     const urls = ["/", "/service", "/about-us"];
-    const _timeToLoadPage = () => {
-        console.log("hoiasjdofjaosfijaosfjdoij")
-    }
+//     const _timeToLoadPage1 = () => {
+//         bannerRef.current.style.transform = "translate3d(-20%, -100%,0)"
+//         bannerRef.current.style.transition = "all 1s cubic-bezier(.7,0,.3,1)"
+//     }
+    const _timeToLoadPage2 = () => {
+        serviceRef.current.style.transform = "translate3d(0, 0,0)"
+        serviceRef.current.style.transition = "all 1s cubic-bezier(.7,0,.3,1)"
+        serviceRef.current.style.transitionDelay = "400ms"
+   }
     const _onWheel = (e) => {
         if(transitioning) return;
         console.log(bannerRef.current)
         transitioning = true;
         curPageNo = openMenu;
-        console.log("called?")
         if(curPageNo < bgList.length-1) {
+            console.log("called?")
+        
             if(bgList[curPageNo].current) {
                 gsapWithCss.timeline()
                 .set(bgList[curPageNo].current, {
-                    transform: "translate3d(0, 0, 0)"})
-                .to(bgList[curPageNo].current, {
-                    transform: "translate3d(-20%, -100%, 0)",
-                    duration: ANIEFFECT.max_page_speed,
-                    delay: 0.1,
-                });
+                        transform: "translate3d(0, 0, 0)",
+                        onComplete: () => {
+                            bgList[curPageNo].current.style.transform = "translate3d(-20%, -100%,0)"
+                            bgList[curPageNo].current.style.transition = "all 1s cubic-bezier(.7,0,.3,1)"
+                        }
+                    }
+                )
+                // .to(bgList[curPageNo].current, {
+                //     transform: "translate3d(-20%, -100%, 0)",
+                //     transition: "all 1s cubic-bezier(.7,0,.3,1)",
+                //     delay: 0.1,
+                // });
+                
             }
-            if(bgInnerList[curPageNo].current) {
-                gsapWithCss.timeline()
-                    .set(bgInnerList[curPageNo].current, {transform: "scale(1, 1)"})
-                    .to(bgInnerList[curPageNo].current, {
-                        transform: "scale(" + ANIEFFECT.max_inner_scale + "," + ANIEFFECT.max_inner_scale + ")",
-                        duration: ANIEFFECT.max_page_speed,
-                        delay: 0,
-                    });
-            }
+            // if(bgInnerList[curPageNo].current) {
+            //     gsapWithCss.timeline()
+            //         .set(bgInnerList[curPageNo].current, {transform: "scale(1, 1)"})
+            //         .to(bgInnerList[curPageNo].current, {
+            //             transform: "scale(" + ANIEFFECT.max_inner_scale + "," + ANIEFFECT.max_inner_scale + ")",
+            //             transition: "all 1s cubic-bezier(.7,0,.3,1)",
+            //             duration: ANIEFFECT.max_page_speed,
+            //             delay: 0,
+            //         });
+            // }
 
             if(bgList[curPageNo+1].current){
                 gsapWithCss.timeline()
-                    .set(bgList[curPageNo+1].current, {transform: "translate3d(20%, 100%, 0)"})
-                    .to(bgList[curPageNo+1].current, {
-                        transform: "translate3d(0, 0, 0)",
-                        duration: ANIEFFECT.max_page_speed*0.8,
-                        delay: 0.3,
-                    });
+                    .set(bgList[curPageNo+1].current, {
+                        transform: "translate3d(20%, 100%, 0)",
+                        onComplete: _timeToLoadPage2}
+                        )
+                    // .to(bgList[curPageNo+1].current, {
+                    //     transform: "translate3d(0, 0, 0)",
+                    //     transition: "all 1s cubic-bezier(.7,0,.3,1)",
+                    //     // delay: 0.3,
+                    // });
+
             }
-            if(bgInnerList[curPageNo+1].current) {
-                gsapWithCss.timeline()
-                    .set(bgInnerList[curPageNo+1].current, {transform: "scale("+ANIEFFECT.max_inner_scale+", "+ANIEFFECT.max_inner_scale+")"})
-                    .to(bgInnerList[curPageNo+1].current, {
-                        transform: "scale(1,1)",
-                        duration: ANIEFFECT.max_page_speed*0.8,
-                        delay: 0.5,
-                        onComplete: _timeToLoadPage
-                    });
-            }
-            if(frontRef.current) {
-                gsapWithCss.timeline()
-                    .set(frontRef.current, {opacity: 1})
-                    .to(frontRef.current, {
-                        opacity: 0,
-                        duration: 0.5,
-                        delay: 0,
-                    });
-            }
+            // if(bgInnerList[curPageNo+1].current) {
+            //     gsapWithCss.timeline()
+            //         .set(bgInnerList[curPageNo+1].current, {transform: "scale("+ANIEFFECT.max_inner_scale+", "+ANIEFFECT.max_inner_scale+")"})
+            //         .to(bgInnerList[curPageNo+1].current, {
+            //             transform: "scale(1,1)",
+            //             transition: "all 1s cubic-bezier(.7,0,.3,1)",
+            //             // delay: 0.5,
+            //             onComplete: _timeToLoadPage2
+            //         });
+            // }
+            // if(frontRef.current) {
+            //     gsapWithCss.timeline()
+            //         .set(frontRef.current, {opacity: 1})
+            //         .to(frontRef.current, {
+            //             opacity: 0,
+            //             duration: 0.5,
+            //             delay: 0,
+            //         });
+            // }
         }
         setTimeout(() => {
-            navigate(navigate(urls[curPageNo+1]))
-            if(frontRef.current) {
-                gsapWithCss.timeline()
-                    .set(frontRef.current, {opacity: 0})
-                    .to(frontRef.current, {
-                        opacity: 1,
-                        duration: 2,
-                        delay: 0,
-                    });
-            }
+            //navigate(navigate(urls[curPageNo+1]))
+            // if(frontRef.current) {
+            //     gsapWithCss.timeline()
+            //         .set(frontRef.current, {opacity: 0})
+            //         .to(frontRef.current, {
+            //             opacity: 1,
+            //             duration: 2,
+            //             delay: 0,
+            //         });
+            // }
         }, 1000);
         setTimeout(() => {
             transitioning = false;
-            setOpenMenu(openMenu+1)
+            // setOpenMenu(openMenu+1)
         }, 2000);
         
     }
